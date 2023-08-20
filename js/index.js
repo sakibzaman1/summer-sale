@@ -1,5 +1,8 @@
 let total = 0;
 
+// function for closing Modal
+
+
 // Function For Applying Coupon
 
 function applyOnClick() {
@@ -7,6 +10,7 @@ function applyOnClick() {
     const couponCode = document.getElementById('coupon-code').innerText;
 
     const inputCoupon = document.getElementById('input-coupon').value;
+
 
     if (couponCode == inputCoupon) {
         const discount = (total * 20) / 100;
@@ -44,6 +48,7 @@ function handleOnClick(target) {
     total = total + price;
 
     document.getElementById('total-price').innerText = total;
+    document.getElementById('after-discount').innerText = total;
 
     // button disable enable
 
