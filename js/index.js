@@ -1,10 +1,38 @@
 let total = 0;
 
-function handleOnClick(target){
+// Function For Applying Coupon
+
+function applyOnClick() {
+
+    const couponCode = document.getElementById('coupon-code').innerText;
+
+    const inputCoupon = document.getElementById('input-coupon').value;
+
+    if (couponCode == inputCoupon) {
+        const discount = (total * 20) / 100;
+        const afterDiscount = total - (total * 20) / 100;
+        document.getElementById('discount').innerText = discount;
+        document.getElementById('after-discount').innerText = afterDiscount;
+    }
+    else if( inputCoupon.length == 0){
+        alert('Please Enter a Coupon Code')
+    }
+    else if( couponCode != inputCoupon ){
+        alert('Invalid Coupon');
+    }
     
-    const selectedItemContainer = document.getElementById('selected-items');
+}
+
+// Function For Product Buying
+
+
+function handleOnClick(target) {
+
+    // Total Price
+
+    const selectedItemContainer = document.getElementById('ordered-items');
     const itemName = target.childNodes[3].childNodes[3].innerText;
-    
+
     const li = document.createElement('li');
     li.innerText = itemName;
 
@@ -16,5 +44,35 @@ function handleOnClick(target){
     total = total + price;
 
     document.getElementById('total-price').innerText = total;
+
+    // button disable enable
+
+
+    const enableApply = document.getElementById('apply-btn');
+
+
+    const enablePurchase = document.getElementById('make-purchase-btn');
+
+    const modalActive = document.getElementById('purchase-done');
+
+    // conditions for buttons
+
+    // condition for apply coupon button
+
+    if (total > 200) {
+        enableApply.removeAttribute('disabled');
+    }
+
+    // condition for make purchase button
+
+    if (total > 0) {
+        enablePurchase.removeAttribute('disabled');
+
+        // Modal Enabled
+        modalActive.setAttribute('href', '#my_modal_8')
+    }
+    else {
+        enablePurchase.setAttribute('disabled', 'disabled')
+    }
 
 }

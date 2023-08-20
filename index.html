@@ -27,6 +27,23 @@
 
 </head>
 
+<!-- Modals -->
+
+<div class="modal" id="my_modal_8">
+    <div class="w-[600px] h-[500px] modal-box flex flex-col items-center justify-center">
+        <img src="/images/congo.png" alt="">
+        <h3 class="font-bold text-4xl mt-6">Congratulations</h3>
+        <p class="py-4">You Have Purchased The Product</p>
+        <div class="modal-action mt-12">
+            <a href="index.html">
+                <button
+                class="ml-5 w-40 h-10 text-white btn btn-error bg-[#E527B2] hover:bg-[#da26aa] text-xl font-semibold">Go Home
+            </button>
+            </a>
+        </div>
+    </div>
+</div>
+
 <body>
     <!-- Header -->
     <header>
@@ -39,7 +56,8 @@
                 <div class="flex justify-center items-center">
                     <h6 class="text-center text-[#111] font-medium text-2xl">Use Promo Code</h6>
                     <button
-                        class="ml-5 w-40 h-14 text-white btn btn-error bg-[#E527B2] hover:bg-[#da26aa] text-2xl font-semibold">SELL200</button>
+                        class="ml-5 w-40 h-14 text-white btn btn-error bg-[#E527B2] hover:bg-[#da26aa] text-2xl font-semibold"><span id="coupon-code">SELL200</span>
+                    </button>
                 </div>
             </div>
             <!-- Image Area -->
@@ -67,7 +85,8 @@
 
                     <!-- First Item -->
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod1.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -84,7 +103,8 @@
                         </div>
                     </div>
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod3.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -101,7 +121,8 @@
                         </div>
                     </div>
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod3.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -130,7 +151,8 @@
 
                     <!-- First Item -->
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod4.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -147,7 +169,8 @@
                         </div>
                     </div>
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod5.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -164,7 +187,8 @@
                         </div>
                     </div>
 
-                    <div onclick="handleOnClick(this)" class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
+                    <div onclick="handleOnClick(this)"
+                        class="cursor-pointer card w-64 bg-base-100 shadow-xl rounded-none p-5">
                         <figure class="px-10 pt-10 bg-gray-100">
                             <img src="/images/prod6.png" alt="Shoes" class="rounded-xl" />
                         </figure>
@@ -195,9 +219,10 @@
                     <div class="bg-base-100 shadow-xl w-[350px] p-6">
                         <h2 class="text-2xl font-medium mb-4">Have a Coupon?</h2>
                         <div class="relative">
-                            <input class="w-[230px] border-2 border-gray-300 border-solid border-r-0 rounded-l-xl h-10" type="text" placeholder="   Coupon Code">
-                        <button
-                            class="absolute h-10 mb-8 btn btn-sm rounded-l-none text-white bg-[#E527B2] hover:bg-[#da26aa] border-2 border-[#E527B2] border-solid">Apply</button>
+                            <input class="pl-5 w-[230px] border-2 border-gray-300 border-solid border-r-0 rounded-l-xl h-10"
+                                type="text" placeholder="   Coupon Code" id="input-coupon">
+                            <button onclick="applyOnClick()"
+                                class="absolute h-10 mb-8 btn btn-sm rounded-l-none text-white bg-[#E527B2] hover:bg-[#da26aa] border-2 border-[#E527B2] border-solid" disabled = "disabled" id="apply-btn">Apply</button>
                         </div>
                     </div>
 
@@ -206,17 +231,24 @@
                     <div class="bg-base-100 shadow-xl p-6 mt-10">
                         <div id="selected-items" class="mb-8 mt-8">
                             <!-- Items will be added here -->
+
+                            <ol id="ordered-items" class="pl-10 list-decimal"></ol>
+
                         </div>
                         <div class="border-t-2 border-gray-200 border-solid pt-6">
                             <h3 class="text-2xl font-medium mb-3">Total Price : <span id="total-price">00</span></h3>
-                            <h3 class="text-2xl font-medium mb-3">Discount : <span>00</span></h3>
-                            <h3 class="text-2xl font-medium">Total : <span>00</span></h3>
+                            <h3 class="text-2xl font-medium mb-3">Discount : <span id="discount">00</span></h3>
+                            <h3 class="text-2xl font-medium">Total : <span id="after-discount">00</span></h3>
                         </div>
-                        <div class="mt-10 border-t-2 border-gray-200 border-solid pt-6">
-                            <button
-                                class="btn btn-wide text-xl font-semibold text-white bg-[#E527B2] hover:bg-[#da26aa]">Make
-                                Purchase</button>
-                        </div>
+                        <a id="purchase-done" href="#">
+                            <div class="mt-10 border-t-2 border-gray-200 border-solid pt-6">
+                                <button
+                                    class="btn btn-wide text-xl font-semibold text-white bg-[#E527B2] hover:bg-[#da26aa]"
+                                    disabled="disabled" id="make-purchase-btn">Make
+                                    Purchase
+                                </button>
+                            </div>
+                        </a>
                     </div>
 
                 </div>
