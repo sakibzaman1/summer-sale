@@ -64,7 +64,7 @@ function handleOnClick(target) {
 
     // condition for apply coupon button
 
-    if (total > 200) {
+    if (total >= 200) {
         enableApply.removeAttribute('disabled');
     }
 
