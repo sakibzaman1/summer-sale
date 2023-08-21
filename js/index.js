@@ -15,16 +15,16 @@ function applyOnClick() {
     if (couponCode == inputCoupon) {
         const discount = (total * 20) / 100;
         const afterDiscount = total - (total * 20) / 100;
-        document.getElementById('discount').innerText = discount;
-        document.getElementById('after-discount').innerText = afterDiscount;
+        document.getElementById('discount').innerText = discount.toFixed(2);
+        document.getElementById('after-discount').innerText = afterDiscount.toFixed(2);
     }
-    else if( inputCoupon.length == 0){
+    else if (inputCoupon.length == 0) {
         alert('Please Enter a Coupon Code')
     }
-    else if( couponCode != inputCoupon ){
+    else if (couponCode != inputCoupon) {
         alert('Invalid Coupon');
     }
-    
+
 }
 
 // Function For Product Buying
@@ -47,8 +47,8 @@ function handleOnClick(target) {
 
     total = total + price;
 
-    document.getElementById('total-price').innerText = total;
-    document.getElementById('after-discount').innerText = total;
+    document.getElementById('total-price').innerText = total.toFixed(2);
+    document.getElementById('after-discount').innerText = total.toFixed(2);
 
     // button disable enable
 
